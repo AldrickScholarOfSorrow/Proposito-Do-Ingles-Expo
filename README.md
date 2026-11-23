@@ -6,14 +6,15 @@ Este repositório contém a migração gradual para Expo do aplicativo Propósit
 
 Trabalhe em etapas pequenas e executáveis. Reconstrua a interface com componentes e estilos do React Native. Não tente converter CSS ou elementos HTML diretamente.
 
-O projeto deve permanecer fácil de importar no Expo Snack Dev. Use SDK 56, Expo Go e dependências compatíveis entre si, concentrando os arquivos necessários na raiz deste repositório.
+O projeto deve permanecer fácil de importar no Expo Snack Dev. Use SDK 56, Expo Go e dependências compatíveis entre si. A entrada principal deve ser `App.js` na raiz, sem Expo Router ou pastas obrigatórias; essa estrutura é necessária para manter compatibilidade direta com o Snack.
 
 O aplicativo atual é local e não possui backend. Não introduza servidor, autenticação ou serviços remotos sem solicitação. O login foi deixado intencionalmente para uma etapa futura; por enquanto, a rota inicial deve continuar acessível sem conta.
 
 ## Estado atual
 
-- Projeto configurado com Expo SDK 56 e Expo Router.
-- A rota `app/index.jsx` abre a tela inicial sem login.
+- Projeto configurado com Expo SDK 56 e entrada principal em `App.js`.
+- O Snack pode importar o conteúdo diretamente, sem exigir Expo Router.
+- A tela inicial abre sem login.
 - A tela apresenta o projeto, indicadores, versículo bilíngue e benefícios do curso.
 - Este repositório é independente do site web original.
 - As páginas, jogos, perfil, login e painel administrativo ainda precisam ser migrados.
@@ -38,7 +39,7 @@ A tela inicial atual ainda não implementa essa temática. Inclua a identidade a
 - Mantenha a versão web fora do escopo de edição, salvo pedido explícito.
 - Preserve as regras e os dados existentes, verificando a origem compartilhada entre painel e jogos antes de migrá-los.
 - Prefira APIs compatíveis com Expo e React Native; não dependa de `localStorage`, DOM ou eventos exclusivos do navegador.
-- Mantenha o projeto fácil de importar e executar no Snack Expo Dev: concentre nele todos os arquivos necessários, use dependências compatíveis com Expo Go e SDK 56, e evite módulos nativos personalizados ou configurações dependentes desta máquina. Quando possível, valide cada etapa também no Snack.
+- Mantenha o projeto fácil de importar e executar no Snack Expo Dev: mantenha `App.js` na raiz, use apenas dependências reconhecidas pelo Snack e SDK 56, e evite Expo Router, módulos nativos personalizados ou configurações dependentes desta máquina. A tela e as próximas funcionalidades devem ser validadas no Snack.
 - Faça uma etapa por vez e valide a tela ou fluxo alterado antes de avançar.
 - Não adicione backend, login ou funcionalidades além da etapa solicitada.
 
