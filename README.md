@@ -2,11 +2,11 @@
 
 ## Briefing do projeto
 
-Este repositório contém a migração gradual para Expo do aplicativo Propósito do Inglês, em desenvolvimento como um projeto independente do site web. O objetivo é levar para Android e iOS a experiência de um projeto comunitário de ensino, conteúdo de apoio e jogos para praticar inglês.
+Este aplicativo é a migração gradual para Expo do site educacional que está em `../src`. O objetivo é levar para Android e iOS a experiência do Propósito do Inglês: um projeto comunitário de ensino, conteúdo de apoio e jogos para praticar inglês.
 
-Trabalhe em etapas pequenas e executáveis. Reconstrua a interface com componentes e estilos do React Native. Não tente converter CSS ou elementos HTML diretamente.
+Trabalhe em etapas pequenas e executáveis. Reaproveite textos, dados e regras de negócio do site quando fizer sentido, mas reconstrua a interface com componentes e estilos do React Native. Não tente converter CSS ou elementos HTML diretamente.
 
-O projeto deve permanecer fácil de importar no Expo Snack Dev. Use SDK 56, Expo Go e dependências compatíveis entre si. A entrada principal deve ser `App.js` na raiz, sem Expo Router ou pastas obrigatórias; essa estrutura é necessária para manter compatibilidade direta com o Snack.
+O projeto deve permanecer fácil de importar no Expo Snack Dev. A entrada principal deve ser `App.js` na raiz, sem Expo Router ou pastas obrigatórias. Essa estrutura permite abrir o aplicativo no Snack sem configuração adicional.
 
 O aplicativo atual é local e não possui backend. Não introduza servidor, autenticação ou serviços remotos sem solicitação. O login foi deixado intencionalmente para uma etapa futura; por enquanto, a rota inicial deve continuar acessível sem conta.
 
@@ -14,16 +14,17 @@ O aplicativo atual é local e não possui backend. Não introduza servidor, aute
 
 - Projeto configurado com Expo SDK 56 e entrada principal em `App.js`.
 - O Snack pode importar o conteúdo diretamente, sem exigir Expo Router.
-- A tela inicial abre sem login.
-- A tela apresenta o projeto, indicadores, versículo bilíngue e benefícios do curso.
-- Este repositório é independente do site web original.
+- A navegação pública usa `AppHeader` e telas de Início, Conteúdo, Vídeos/Músicas, Livros e Sobre.
+- Os componentes compartilham o tema visual em `visual/theme.js`, incluindo vermelho, azul-marinho e branco da bandeira americana.
+- A tela inicial apresenta o projeto, indicadores, versículo bilíngue e benefícios do curso.
+- O site em `../src` continua sendo a referência para conteúdo e comportamento ainda não migrados.
 - As páginas, jogos, perfil, login e painel administrativo ainda precisam ser migrados.
 
 ## Identidade visual obrigatória
 
 O aplicativo deve incorporar de forma perceptível a temática da bandeira dos Estados Unidos, conectada ao aprendizado de inglês. Use vermelho, branco e azul-marinho e inclua referências visuais reconhecíveis à bandeira, como estrelas e listras, em elementos da identidade do app e das telas. Mantenha contraste, legibilidade e equilíbrio; a bandeira deve fazer parte da linguagem visual do aplicativo, não ficar restrita a um detalhe escondido.
 
-A tela inicial atual ainda não implementa essa temática. Inclua a identidade americana na próxima etapa de design, preservando a clareza e a missão comunitária do projeto.
+A identidade americana já deve aparecer no cabeçalho e no hero da tela inicial por meio da bandeira estilizada em vermelho, branco e azul-marinho. Preserve essas cores e símbolos em toda expansão da interface, mantendo contraste e clareza.
 
 ## Etapas sugeridas
 
@@ -36,10 +37,11 @@ A tela inicial atual ainda não implementa essa temática. Inclua a identidade a
 
 ## Diretrizes para próximas etapas
 
+- Estruture novas telas em `pages/` e elementos visuais reutilizáveis em `visual/`.
 - Mantenha a versão web fora do escopo de edição, salvo pedido explícito.
 - Preserve as regras e os dados existentes, verificando a origem compartilhada entre painel e jogos antes de migrá-los.
 - Prefira APIs compatíveis com Expo e React Native; não dependa de `localStorage`, DOM ou eventos exclusivos do navegador.
-- Mantenha o projeto fácil de importar e executar no Snack Expo Dev: mantenha `App.js` na raiz, use apenas dependências reconhecidas pelo Snack e SDK 56, e evite Expo Router, módulos nativos personalizados ou configurações dependentes desta máquina. A tela e as próximas funcionalidades devem ser validadas no Snack.
+- Mantenha o projeto fácil de importar e executar no Snack Expo Dev: mantenha `App.js` na raiz, use dependências compatíveis com Expo Go e SDK 56 e evite Expo Router, módulos nativos personalizados ou configurações dependentes desta máquina. Valide cada etapa também no Snack.
 - Faça uma etapa por vez e valide a tela ou fluxo alterado antes de avançar.
 - Não adicione backend, login ou funcionalidades além da etapa solicitada.
 
